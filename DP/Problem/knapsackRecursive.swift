@@ -20,6 +20,8 @@ class KnapsackRecursive {
         
         let q = getSumSubsetDp(wt: [2,3,7,8], W: 11, n: 4)
         
+        let a = canPartition([1,5,11,5])
+        
         //getRecursiveMaximumProfit(wt: [10,20,30], val: [60,100,120], W:50)
         
     }
@@ -120,6 +122,43 @@ class KnapsackRecursive {
             }
         }
         return t[n][W]
+    }
+    
+    func canPartition(_ nums: [Int]) -> Bool {
+        var sum = 0
+        for i in 0..<nums.count {
+            sum = sum + nums[i]
+        }
+        
+        if sum%2 != 0 {
+            return false
+        } else {
+            let newSum = sum / 2
+            
+            var t = Array<[Bool]>(repeating:(Array<Bool>(repeating:false, count:newSum+1)), count:nums.count+1)
+            
+           for j in 0..<newSum+1{
+                t[0][j] = false
+           }
+            
+            for i in 0..<nums.count+1{
+                t[i][0] = true
+            }
+            
+            for i in 1..<nums.count+1{
+                for j in 1..<newSum+1{
+                    if nums[i-1] <= j {
+                        t[i][j] = t[i-1][j-nums[i-1]] || t[i-1][j]
+                    } else {
+                        t[i][j] = t[i-1][j]
+                    }
+                }
+            }
+            
+            return t[nums.count][newSum]
+            
+        }
+        
     }
     
 }
