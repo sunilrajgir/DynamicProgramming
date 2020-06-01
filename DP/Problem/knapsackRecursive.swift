@@ -14,9 +14,11 @@ class KnapsackRecursive {
     init() {
         
         //let p = minDistance("intention", "execution")
-        let p = getRecursiveMemoizeMaximumProfit(wt: [1,3,4,5], val: [1,4,5,7], W:7)
+        //let p = getRecursiveMemoizeMaximumProfit(wt: [1,3,4,5], val: [1,4,5,7], W:7)
         
-        let dp = getMaxDp(wt: [1,3,4,5], val: [1,4,5,7], W: 7, n: 4)
+        //let dp = getMaxDp(wt: [1,3,4,5], val: [1,4,5,7], W: 7, n: 4)
+        
+        let q = getSumSubsetDp(wt: [2,3,7,8], W: 11, n: 4)
         
         //getRecursiveMaximumProfit(wt: [10,20,30], val: [60,100,120], W:50)
         
@@ -82,6 +84,35 @@ class KnapsackRecursive {
             for j in 1..<W+1 {
                 if wt[i-1] <= j {
                     t[i][j] = max(val[i-1]+t[i-1][j-wt[i-1]], t[i-1][j])
+                } else {
+                    t[i][j] = t[i-1][j]
+                }
+                  
+            }
+        }
+        return t[n][W]
+    }
+    
+    func getSumSubsetDp(wt:[Int], W:Int, n:Int) -> Bool {
+        
+        var t = Array<[Bool]>(repeating: Array<Bool>(repeating: false, count: W+1), count: n+1)
+        
+        for i in 0..<n+1 {
+            for j in 0..<W+1 {
+                if i == 0 {
+                    t[i][j] = false
+                }
+                
+                if j == 0 {
+                    t[i][j] = true
+                }
+            }
+        }
+
+        for i in 1..<n+1 {
+            for j in 1..<W+1 {
+                if wt[i-1] <= j {
+                    t[i][j] = t[i-1][j-wt[i-1]] || t[i-1][j]
                 } else {
                     t[i][j] = t[i-1][j]
                 }
