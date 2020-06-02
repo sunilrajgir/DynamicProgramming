@@ -22,6 +22,8 @@ class KnapsackRecursive {
         
         let a = canPartition([1,5,11,5])
         
+        let b = countAllSubsetWithGivenSum(arr: [2,3,5,8,10], sum: 10, n: 5)
+        
         //getRecursiveMaximumProfit(wt: [10,20,30], val: [60,100,120], W:50)
         
     }
@@ -154,11 +156,32 @@ class KnapsackRecursive {
                     }
                 }
             }
-            
             return t[nums.count][newSum]
-            
+        }
+    }
+    
+    func countAllSubsetWithGivenSum(arr:[Int], sum: Int, n:Int) -> Int {
+        var t = Array(repeating: Array(repeating: 0, count: sum+1), count: n+1)
+        
+        for i in 0..<sum+1 {
+            t[0][i] = 0
         }
         
+        for i in 0..<n+1 {
+            t[i][0] = 1
+        }
+        
+        for i in 1..<n+1 {
+            for j in 1..<sum+1 {
+                if arr[i-1] <= j {
+                    t[i][j] = t[i-1][j-arr[i-1]] + t[i-1][j]
+                } else {
+                    t[i][j] = t[i-1][j]
+                }
+            }
+        }
+        
+        return t[n][sum]
     }
     
 }
