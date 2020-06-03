@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32BD5EAB2488148000B7AB83 /* UnboundedKnapsack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BD5EAA2488148000B7AB83 /* UnboundedKnapsack.swift */; };
 		32CBD9F124838E8500CCDF43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBD9F024838E8500CCDF43 /* AppDelegate.swift */; };
 		32CBD9F324838E8500CCDF43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBD9F224838E8500CCDF43 /* SceneDelegate.swift */; };
 		32CBD9F524838E8500CCDF43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBD9F424838E8500CCDF43 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32BD5EAA2488148000B7AB83 /* UnboundedKnapsack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnboundedKnapsack.swift; sourceTree = "<group>"; };
 		32CBD9ED24838E8500CCDF43 /* DP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CBD9F024838E8500CCDF43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32CBD9F224838E8500CCDF43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				32CBDA1324838F0F00CCDF43 /* knapsackRecursive.swift */,
+				32BD5EAA2488148000B7AB83 /* UnboundedKnapsack.swift */,
 			);
 			path = Problem;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32CBD9F524838E8500CCDF43 /* ViewController.swift in Sources */,
+				32BD5EAB2488148000B7AB83 /* UnboundedKnapsack.swift in Sources */,
 				32CBD9F124838E8500CCDF43 /* AppDelegate.swift in Sources */,
 				32CBDA1424838F0F00CCDF43 /* knapsackRecursive.swift in Sources */,
 				32CBD9F324838E8500CCDF43 /* SceneDelegate.swift in Sources */,
