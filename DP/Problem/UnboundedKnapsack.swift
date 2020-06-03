@@ -11,6 +11,7 @@ import Foundation
 class unboundedKnapsack {
     init() {
         let a = maxRod(lenArray: [1,3,5,6], priceArray: [7,8,10,15], len: 10)
+        let b = maxCoinChange(coin: [1,2,3], sum: 5)
         
     }
     
@@ -38,5 +39,30 @@ class unboundedKnapsack {
         
         return t[n][len]
         
+    }
+    
+    func maxCoinChange(coin: [Int], sum: Int) -> Int {
+        let n = coin.count
+        var t = Array(repeating: Array(repeating: 0, count: sum+1), count: n+1)
+        
+        for i in 0..<sum+1{
+            t[0][i] = 0
+        }
+        
+        for i in 0..<n+1{
+            t[i][0] = 1
+        }
+        
+        for i in 1..<n+1{
+            for j in 1..<sum+1{
+                if coin[i-1] <= j {
+                   t[i][j] = t[i][j-coin[i-1]]+t[i-1][j]
+                } else {
+                    t[i][j] = t[i-1][j]
+                }
+            }
+        }
+        
+        return t[n][sum]
     }
 }
